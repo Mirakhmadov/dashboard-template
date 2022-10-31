@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/scroll.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Navbar</a>
+        <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search">
+            <button class="btn btn-outline-primary" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+<div class="custom-sidebar">
+    <button type="button" onclick="func(event)">
+        <
+    </button>
+    <a href="#">
+        <i class="fa-solid fa-chart-line"></i>
+        Dashboard
+    </a>
+    <a href="#first">
+        <i class="fa-solid fa-house"></i>
+        First
+    </a>
+    <a href="#second">
+        <i class="fa-solid fa-house"></i>
+        Second
+    </a>
+    <a href="#third">
+        <i class="fa-solid fa-house"></i>
+        Third
+    </a>
+    <a href="#fourth">
+        <i class="fa-solid fa-house"></i>
+        Fourth
+    </a>
+    <hr>
+    Ctrl + k => focus search<br>
+    Esc => blur<br>
+    Ctrl + r => reload
+</div>
+<div class="custom-content">
+    <h1 id="first">First</h1>
+    <h3>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad adipisci, aliquam architecto assumenda
+        beatae cumque dignissimos dolore dolorem ducimus fuga, harum id, illo laudantium nihil quod repudiandae
+        voluptates voluptatum.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad adipisci, aliquam architecto assumenda
+        beatae cumque dignissimos dolore dolorem ducimus fuga, harum id, illo laudantium nihil quod repudiandae
+        voluptates voluptatum.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad adipisci, aliquam architecto assumenda
+        beatae cumque dignissimos dolore dolorem ducimus fuga, harum id, illo laudantium nihil quod repudiandae
+        voluptates voluptatum.
+    </h3>
+
+    <h1 id="second">Second</h1>
+    <h3>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad adipisci, aliquam architecto assumenda
+        beatae cumque dignissimos dolore dolorem ducimus fuga, harum id, illo laudantium nihil quod repudiandae
+        voluptates voluptatum.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad adipisci, aliquam architecto assumenda
+        beatae cumque dignissimos dolore dolorem ducimus fuga, harum id, illo laudantium nihil quod repudiandae
+        voluptates voluptatum.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad adipisci, aliquam architecto assumenda
+        beatae cumque dignissimos dolore dolorem ducimus fuga, harum id, illo laudantium nihil quod repudiandae
+        voluptates voluptatum.
+    </h3>
+
+    <h1 id="third">Third</h1>
+    <h3>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad adipisci, aliquam architecto assumenda
+        beatae cumque dignissimos dolore dolorem ducimus fuga, harum id, illo laudantium nihil quod repudiandae
+        voluptates voluptatum.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad adipisci, aliquam architecto assumenda
+        beatae cumque dignissimos dolore dolorem ducimus fuga, harum id, illo laudantium nihil quod repudiandae
+        voluptates voluptatum.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad adipisci, aliquam architecto assumenda
+        beatae cumque dignissimos dolore dolorem ducimus fuga, harum id, illo laudantium nihil quod repudiandae
+        voluptates voluptatum.
+    </h3>
+
+    <h1 id="fourth">Fourth</h1>
+    <h3>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad adipisci, aliquam architecto assumenda
+        beatae cumque dignissimos dolore dolorem ducimus fuga, harum id, illo laudantium nihil quod repudiandae
+        voluptates voluptatum.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad adipisci, aliquam architecto assumenda
+        beatae cumque dignissimos dolore dolorem ducimus fuga, harum id, illo laudantium nihil quod repudiandae
+        voluptates voluptatum.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ad adipisci, aliquam architecto assumenda
+        beatae cumque dignissimos dolore dolorem ducimus fuga, harum id, illo laudantium nihil quod repudiandae
+        voluptates voluptatum.
+    </h3>
+</div>
+
+<script>
+    let isOpen = true
+
+    const func = (event) => {
+        let sidebar = document.getElementsByClassName("custom-sidebar")
+        let content = document.getElementsByClassName("custom-content")
+
+        sidebar[0].style.left = isOpen ? "-20vw" : 0
+        content[0].style.left = isOpen ? 0 : "20vw"
+        content[0].style.width = isOpen ? "100vw" : "80vw"
+        event.target.innerHTML = isOpen ? ">" : "<"
+        isOpen = !isOpen
+    }
+
+    document.addEventListener('keydown', (e) => {
+        e.preventDefault();
+
+        switch (true) {
+            case (e.key === "k" && e.ctrlKey) :
+                document.getElementById("search").focus()
+                break;
+
+            case (e.key === "r" && e.ctrlKey) :
+                window.location.reload()
+                break;
+
+            case (e.key === "Escape") :
+                document.getElementById("search").blur()
+                break;
+
+            default :
+                e.preventDefault()
+                break;
+        }
+    })
+</script>
+</body>
+</html>
